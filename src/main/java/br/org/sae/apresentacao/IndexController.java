@@ -12,7 +12,7 @@ public class IndexController {
 	@Path("/")
 	public void index(Result resultado) {
 
-		resultado.include("mensagem", "mudando essa *");
+		resultado.include("mensagem", "Bem vindo ao Open-SAE!");
 
 	}
 
