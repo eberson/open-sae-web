@@ -6,7 +6,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
-import br.org.sae.service.RespostaService;
+import br.org.sae.service.RespostaImportService;
 
 @Resource
 public class ImportarPlanilhaController {
@@ -22,17 +22,17 @@ public class ImportarPlanilhaController {
 
 	@Post
 	@Path("/planilha/importar")
-	public RespostaService importarPlanilha(String ano, String semestre,
+	public RespostaImportService importarPlanilha(String ano, String semestre,
 			UploadedFile planilha) {
 
 		String tipoArquivo = planilha.getContentType();
 
 		if (XLSX.equals(tipoArquivo) || XLS.equals(tipoArquivo)) {
-			return RespostaService.SUCESSO;
+			return RespostaImportService.SUCESSO;
 
 		}
 
-		return RespostaService.ERRO;
+		return RespostaImportService.FORMATO_ARQUIVO_INVALIDO;
 
 	}
 

@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
-import br.org.sae.service.RespostaService;
+import br.org.sae.service.RespostaImportService;
 
 public class ImportarPlanilhaControllerTest {
 
@@ -20,15 +20,12 @@ public class ImportarPlanilhaControllerTest {
 		uploadedFileMock = Mockito.mock(UploadedFile.class);
 	}
 	
-	
-	
 	@Test
 	public void testImportarPlanilhaXLSX(){
-		
 		ImportarPlanilhaController controller = new ImportarPlanilhaController();
 		Mockito.when(uploadedFileMock.getContentType()).thenReturn(XLSX);
-		RespostaService resposta = controller.importarPlanilha("2013", "1", uploadedFileMock);
-		Assert.assertEquals(RespostaService.SUCESSO, resposta);		
+		RespostaImportService resposta = controller.importarPlanilha("2013", "1", uploadedFileMock);
+		Assert.assertEquals(RespostaImportService.SUCESSO, resposta);		
 	}
 	
 	@Test
@@ -36,8 +33,8 @@ public class ImportarPlanilhaControllerTest {
 		
 		ImportarPlanilhaController controller = new ImportarPlanilhaController();
 		Mockito.when(uploadedFileMock.getContentType()).thenReturn(XLS);
-		RespostaService resposta = controller.importarPlanilha("2013", "1", uploadedFileMock);
-		Assert.assertEquals(RespostaService.SUCESSO, resposta);		
+		RespostaImportService resposta = controller.importarPlanilha("2013", "1", uploadedFileMock);
+		Assert.assertEquals(RespostaImportService.SUCESSO, resposta);		
 	}
 	
 	@Test
@@ -45,8 +42,8 @@ public class ImportarPlanilhaControllerTest {
 		
 		ImportarPlanilhaController controller = new ImportarPlanilhaController();
 		Mockito.when(uploadedFileMock.getContentType()).thenReturn("image/jpg");
-		RespostaService resposta = controller.importarPlanilha("2013", "1", uploadedFileMock);
-		Assert.assertEquals(RespostaService.ERRO, resposta);		
+		RespostaImportService resposta = controller.importarPlanilha("2013", "1", uploadedFileMock);
+		Assert.assertEquals(RespostaImportService.FORMATO_ARQUIVO_INVALIDO, resposta);		
 	}
 	
 	@Test
@@ -54,16 +51,16 @@ public class ImportarPlanilhaControllerTest {
 		
 		ImportarPlanilhaController controller = new ImportarPlanilhaController();
 		Mockito.when(uploadedFileMock.getContentType()).thenReturn("image/png");
-		RespostaService resposta = controller.importarPlanilha("2013", "1", uploadedFileMock);
-		Assert.assertEquals(RespostaService.ERRO, resposta);		
+		RespostaImportService resposta = controller.importarPlanilha("2013", "1", uploadedFileMock);
+		Assert.assertEquals(RespostaImportService.FORMATO_ARQUIVO_INVALIDO, resposta);		
 	}
 	@Test
 	public void testImportarPlanilhaTextPlain(){
 		
 		ImportarPlanilhaController controller = new ImportarPlanilhaController();
 		Mockito.when(uploadedFileMock.getContentType()).thenReturn("text/plain");
-		RespostaService resposta = controller.importarPlanilha("2013", "1", uploadedFileMock);
-		Assert.assertEquals(RespostaService.ERRO, resposta);		
+		RespostaImportService resposta = controller.importarPlanilha("2013", "1", uploadedFileMock);
+		Assert.assertEquals(RespostaImportService.FORMATO_ARQUIVO_INVALIDO, resposta);		
 	}
 	
 	
