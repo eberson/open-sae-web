@@ -1,7 +1,5 @@
 package br.org.sae.apresentacao;
 
-import java.io.File;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

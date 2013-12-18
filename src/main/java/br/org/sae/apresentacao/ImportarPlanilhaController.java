@@ -11,6 +11,9 @@ import br.org.sae.service.RespostaService;
 @Resource
 public class ImportarPlanilhaController {
 
+	private static final String XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+	private static final String XLS = "application/vnd.ms-excel";
+	
 	@Get
 	@Path("/planilha/importar")
 	public void index(Result controle) {
@@ -24,9 +27,7 @@ public class ImportarPlanilhaController {
 
 		String tipoArquivo = planilha.getContentType();
 
-		if ("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-				.equals(tipoArquivo)
-				|| "application/vnd.ms-excel".equals(tipoArquivo)) {
+		if (XLSX.equals(tipoArquivo) || XLS.equals(tipoArquivo)) {
 			return RespostaService.SUCESSO;
 
 		}
