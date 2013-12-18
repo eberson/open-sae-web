@@ -3,13 +3,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Open-sae</title>
-<link rel="stylesheet" href="css/bootstrap.min.css"  />
-<link rel="stylesheet" href="css/bootstrap-theme.min.css"  />
-<link rel="stylesheet" href="css/open-sae.css" />
+<link rel="stylesheet" href="/css/bootstrap.min.css"  />
+<link rel="stylesheet" href="/css/bootstrap-theme.min.css"  />
+<link rel="stylesheet" href="/css/open-sae.css" />
 </head>
 <body>
 
-<img alt="logo-open-sae" src="img/logo.jpg" class="logo" />
+<img alt="logo-open-sae" src="/img/logo.jpg" class="logo" />
 
 <nav class="navbar navbar-default" role="navigation">
   <!-- Brand and toggle get grouped for better mobile display -->
@@ -31,7 +31,7 @@
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">CRM <b class="caret"></b></a>
         <ul class="dropdown-menu">
-          <li><a href="/importarPlanilha">Importar planilha</a></li>
+          <li><a href="/planilha/importar">Importar planilha</a></li>
           <li><a href="#">Consultar candidatos</a></li>         
         </ul>
       </li>
