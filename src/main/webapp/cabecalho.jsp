@@ -32,7 +32,7 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">CRM <b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li><a href="/planilha/importar">Importar planilha</a></li>
-          <li><a href="#">Consultar candidatos</a></li>         
+          <li><a href="/candidato/listar">Consultar candidatos</a></li>         
         </ul>
       </li>
       
