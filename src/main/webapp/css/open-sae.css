@@ -18,3 +18,35 @@
 	
 	float:right;
 }
+
+a{
+	
+	color:#777;
+}
+
+.input-semestre, .input-ano{
+	width:70px;
+	margin-top:10px;
+	margin-left:2px;
+}
+
+.input-cpf, .input-nome{
+	margin-left:2px;
+}
+
+.scheduler-border {
+    width:inherit; 
+    border-bottom:none;
+}
+
+fieldset{
+	border:solid 1px #777;
+	padding:5px 10px 20px 10px;
+	margin-bottom:20px;
+	border-radius:4px;
+}
+
+.botoes{
+	
+	float:right
+}
