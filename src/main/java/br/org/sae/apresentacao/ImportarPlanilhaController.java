@@ -1,5 +1,9 @@
 package br.org.sae.apresentacao;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.caelum.vraptor.Get;
@@ -35,8 +39,13 @@ public class ImportarPlanilhaController {
 
 		if (XLSX.equals(tipoArquivo) || XLS.equals(tipoArquivo)) {
 			
-			System.out.println("HASH --------> " + importService.hashCode());
-			
+//			File arquivo = new File("");
+//			
+//			FileOutputStream fos = new FileOutputStream(arquivo);
+//			fos.write(planilha.getFile().);
+//			
+//			importService.importar(planilha.getFile(), ano, semestre);
+//			
 			return RespostaImportService.SUCESSO;
 
 		}

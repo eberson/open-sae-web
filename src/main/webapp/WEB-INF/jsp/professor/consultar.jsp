@@ -1,7 +1,7 @@
 <jsp:include page="/cabecalho.jsp"></jsp:include>
 
 <div class="panel panel-default">
-	<div class="panel-heading">Lista de Alunos</div>
+	<div class="panel-heading">Lista de Professores</div>
 	<div class="panel-body">
 
 

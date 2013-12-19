@@ -6,11 +6,14 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
+import br.org.sae.service.ImportService;
 import br.org.sae.service.RespostaImportService;
 
 public class ImportarPlanilhaControllerTest {
 
 	private UploadedFile uploadedFileMock;
+	private ImportService importServiceMock;
+	
 	
 	private static final String XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 	private static final String XLS = "application/vnd.ms-excel";
@@ -18,6 +21,7 @@ public class ImportarPlanilhaControllerTest {
 	@Before
 	public void setUp(){
 		uploadedFileMock = Mockito.mock(UploadedFile.class);
+		importServiceMock = Mockito.mock(ImportService.class);
 	}
 	
 	@Test
