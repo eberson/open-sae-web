@@ -15,12 +15,14 @@
 }
 
 .right{
-	
 	float:right;
 }
 
+.left{
+	float:left;	
+}
+
 a{
-	
 	color:#777;
 }
 
@@ -37,13 +39,6 @@ a{
 .scheduler-border {
     width:inherit; 
     border-bottom:none;
-}
-
-fieldset{
-	border:solid 1px #777;
-	padding:5px 10px 20px 10px;
-	margin-bottom:20px;
-	border-radius:4px;
 }
 
 .botoes{

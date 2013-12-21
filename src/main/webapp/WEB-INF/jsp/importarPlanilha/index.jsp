@@ -7,8 +7,8 @@
 		<form method="POST" action="/planilha/importar"
 			enctype="multipart/form-data">
 			<div class="form-group">
-				<label class="quebra" for="ano">Ano</label><input type="text"
-					name="ano" id="ano" class="form-control tamanho">
+				<label class="quebra" for="ano">Ano</label>
+				<input type="text" name="ano" id="ano" class="form-control tamanho">
 			</div>
 
 			<div class="form-group">

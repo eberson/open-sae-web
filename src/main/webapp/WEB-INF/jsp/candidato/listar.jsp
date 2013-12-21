@@ -4,24 +4,23 @@
 	<div class="panel-heading">Lista de Candidatos</div>
 	<div class="panel-body">
 
-
-		<fieldset>
-			<legend class="scheduler-border">Pesquisar</legend>
+		<div class='panel panel-info'>
+			<div class='panel-heading'>Pesquisar</div>
+			<div class='panel-body'>
 			<form>
-				<div class="posicao">
-					<label>CPF: </label><input name="cpf" id="cpf" class="input-cpf">
-					<label>Nome:</label><input name="nome" id="nome" class="input-nome">
-					<label>Semestre:</label><input name="semestre" id="semestre"
-						class="input-semestre"> <label>Ano: </label><input
-						name="ano" id="ano" class="input-ano">
+				<div>
+					<label for="cpf">CPF</label><input name="cpf" id="cpf" class="form-control tamanho">
+					<label for="nome">Nome</label><input name="nome" id="nome" class="form-control tamanho">
+					<label for="semestre">Semestre</label><input name="semestre" id="semestre" class="form-control tamanho">
+					<label for="ano">Ano</label><input name="ano" id="ano" class="form-control tamanho">
 				</div>
-				<div class="botoes">
-					<button class="btn btn-primary" name="btnPesquisar"
-						id="btnPesquisar">Pesquisar</button>
-					<button class="btn btn-primary" name="btnLimpar" id="btnLimpar">Limpar</button>
+				<div class="right">
+					<button class="btn btn-info" name="btnPesquisar" id="btnPesquisar">Pesquisar</button>
+					<button class="btn btn-info" name="btnLimpar" id="btnLimpar">Limpar</button>
 				</div>
 			</form>
-		</fieldset>
+			</div>
+		</div>
 
 		<table class="table table-striped">
 
