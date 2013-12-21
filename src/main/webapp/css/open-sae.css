@@ -47,6 +47,9 @@ fieldset{
 }
 
 .botoes{
-	
 	float:right
+}
+
+#conteudo{
+	margin: 10px;
 }

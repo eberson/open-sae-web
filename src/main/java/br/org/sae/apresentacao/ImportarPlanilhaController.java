@@ -1,8 +1,7 @@
 package br.org.sae.apresentacao;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import static br.org.sae.service.ImportFileType.XLS;
+import static br.org.sae.service.ImportFileType.XLSX;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -12,17 +11,19 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
+import br.org.sae.service.ImportFileType;
 import br.org.sae.service.ImportService;
 import br.org.sae.service.RespostaImportService;
 
 @Resource
 public class ImportarPlanilhaController {
 
-	private static final String XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-	private static final String XLS = "application/vnd.ms-excel";
+	private ImportService importService;
 	
 	@Autowired
-	ImportService importService;
+	public ImportarPlanilhaController(final ImportService importService){
+		this.importService = importService;
+	}
 	
 	@Get
 	@Path("/planilha/importar")
@@ -32,26 +33,23 @@ public class ImportarPlanilhaController {
 
 	@Post
 	@Path("/planilha/importar")
-	public RespostaImportService importarPlanilha(String ano, String semestre,
-			UploadedFile planilha) {
+	public RespostaImportService importarPlanilha(final String ano, final String semestre, final UploadedFile planilha) {
 
-		String tipoArquivo = planilha.getContentType();
-
-		if (XLSX.equals(tipoArquivo) || XLS.equals(tipoArquivo)) {
+		try{
+			final ImportFileType tipo = ImportFileType.from(planilha.getContentType());
 			
-//			File arquivo = new File("");
-//			
-//			FileOutputStream fos = new FileOutputStream(arquivo);
-//			fos.write(planilha.getFile().);
-//			
-//			importService.importar(planilha.getFile(), ano, semestre);
-//			
-			return RespostaImportService.SUCESSO;
-
+			if (XLS.equals(tipo) || XLSX.equals(tipo)) {
+				return importService.importar(tipo, planilha.getFile(), Integer.valueOf(ano), Integer.valueOf(semestre));
+			}else{
+				return RespostaImportService.ARQUIVO_FORMATO_INVALIDO;
+			}
+		}catch(IllegalArgumentException iae){
+			return RespostaImportService.ARQUIVO_FORMATO_INVALIDO;
+		}catch(Exception e){
+			e.printStackTrace();			
+			return RespostaImportService.ERRO_DESCONHECIDO;
 		}
-
-		return RespostaImportService.FORMATO_ARQUIVO_INVALIDO;
-
+		
 	}
-
+	
 }

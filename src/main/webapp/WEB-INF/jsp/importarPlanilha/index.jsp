@@ -12,7 +12,7 @@
 			</div>
 
 			<div class="form-group">
-				<label class="quebra" for="semestre">Semestre</label><input
+				<label class="quebra" for="semestre">Semestre</label> <input
 					type="text" name="semestre" id="semestre"
 					class="form-control tamanho">
 			</div>
@@ -27,7 +27,5 @@
 
 	</div>
 </div>
-
-
 
 <jsp:include page="/rodape.jsp"></jsp:include>

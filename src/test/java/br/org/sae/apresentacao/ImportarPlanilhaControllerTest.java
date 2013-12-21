@@ -1,9 +1,14 @@
 package br.org.sae.apresentacao;
 
+import static br.org.sae.service.ImportFileType.XLS;
+import static br.org.sae.service.ImportFileType.XLSX;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
 import br.com.caelum.vraptor.interceptor.multipart.UploadedFile;
 import br.org.sae.service.ImportService;
@@ -11,60 +16,56 @@ import br.org.sae.service.RespostaImportService;
 
 public class ImportarPlanilhaControllerTest {
 
+	@Mock
 	private UploadedFile uploadedFileMock;
+
+	@Mock
 	private ImportService importServiceMock;
-	
-	
-	private static final String XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-	private static final String XLS = "application/vnd.ms-excel";
 	
 	@Before
 	public void setUp(){
-		uploadedFileMock = Mockito.mock(UploadedFile.class);
-		importServiceMock = Mockito.mock(ImportService.class);
+		MockitoAnnotations.initMocks(this);
 	}
 	
 	@Test
 	public void testImportarPlanilhaXLSX(){
-		ImportarPlanilhaController controller = new ImportarPlanilhaController();
-		Mockito.when(uploadedFileMock.getContentType()).thenReturn(XLSX);
+		final ImportarPlanilhaController controller = new ImportarPlanilhaController(importServiceMock);
+		Mockito.when(uploadedFileMock.getContentType()).thenReturn(XLSX.toString());
+		Mockito.when(importServiceMock.importar(XLSX, uploadedFileMock.getFile(), 2013, 1)).thenReturn(RespostaImportService.SUCESSO);
 		RespostaImportService resposta = controller.importarPlanilha("2013", "1", uploadedFileMock);
 		Assert.assertEquals(RespostaImportService.SUCESSO, resposta);		
 	}
 	
 	@Test
 	public void testImportarPlanilhaXLS(){
-		
-		ImportarPlanilhaController controller = new ImportarPlanilhaController();
-		Mockito.when(uploadedFileMock.getContentType()).thenReturn(XLS);
+		final ImportarPlanilhaController controller = new ImportarPlanilhaController(importServiceMock);
+		Mockito.when(uploadedFileMock.getContentType()).thenReturn(XLS.toString());
+		Mockito.when(importServiceMock.importar(XLS, uploadedFileMock.getFile(), 2013, 1)).thenReturn(RespostaImportService.SUCESSO);
 		RespostaImportService resposta = controller.importarPlanilha("2013", "1", uploadedFileMock);
 		Assert.assertEquals(RespostaImportService.SUCESSO, resposta);		
 	}
 	
 	@Test
 	public void testImportarPlanilhaOutroFormato(){
-		
-		ImportarPlanilhaController controller = new ImportarPlanilhaController();
+		ImportarPlanilhaController controller = new ImportarPlanilhaController(importServiceMock);
 		Mockito.when(uploadedFileMock.getContentType()).thenReturn("image/jpg");
 		RespostaImportService resposta = controller.importarPlanilha("2013", "1", uploadedFileMock);
-		Assert.assertEquals(RespostaImportService.FORMATO_ARQUIVO_INVALIDO, resposta);		
+		Assert.assertEquals(RespostaImportService.ARQUIVO_FORMATO_INVALIDO, resposta);		
 	}
 	
 	@Test
 	public void testImportarPlanilhaOutroFormatoDois(){
-		
-		ImportarPlanilhaController controller = new ImportarPlanilhaController();
+		ImportarPlanilhaController controller = new ImportarPlanilhaController(importServiceMock);
 		Mockito.when(uploadedFileMock.getContentType()).thenReturn("image/png");
 		RespostaImportService resposta = controller.importarPlanilha("2013", "1", uploadedFileMock);
-		Assert.assertEquals(RespostaImportService.FORMATO_ARQUIVO_INVALIDO, resposta);		
+		Assert.assertEquals(RespostaImportService.ARQUIVO_FORMATO_INVALIDO, resposta);		
 	}
 	@Test
 	public void testImportarPlanilhaTextPlain(){
-		
-		ImportarPlanilhaController controller = new ImportarPlanilhaController();
+		ImportarPlanilhaController controller = new ImportarPlanilhaController(importServiceMock);
 		Mockito.when(uploadedFileMock.getContentType()).thenReturn("text/plain");
 		RespostaImportService resposta = controller.importarPlanilha("2013", "1", uploadedFileMock);
-		Assert.assertEquals(RespostaImportService.FORMATO_ARQUIVO_INVALIDO, resposta);		
+		Assert.assertEquals(RespostaImportService.ARQUIVO_FORMATO_INVALIDO, resposta);		
 	}
 	
 	
