@@ -1,6 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<jsp:include page="/cabecalho.jsp"></jsp:include>
-
 <c:choose>
 <c:when test="${respostaImportService == 'SUCESSO'}">
 	<div class='alert alert-success'>Planilha importada com sucesso</div>
@@ -18,7 +16,3 @@
     <div class='alert alert-danger'>ERRO DESCONHECIDO</div>
 </c:otherwise>
 </c:choose>
-
-<a class="btn btn-primary right" href="/planilha/importar">Voltar</a>
-
-<jsp:include page="/rodape.jsp"></jsp:include>

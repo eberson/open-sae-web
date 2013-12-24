@@ -6,20 +6,16 @@
 	margin:10px;
 }
 
-.quebra {
+.como-bloco {
 	display:block;
 }
 
-.tamanho{
-	width:15%;
+.margem-top-10{
+	margin-top: 10px;
 }
 
-.right{
-	float:right;
-}
-
-.left{
-	float:left;	
+.margem-top-20{
+	margin-top: 20px;
 }
 
 a{
