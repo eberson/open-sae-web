@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:include page="/cabecalho.jsp"></jsp:include>
 
 <div class="panel panel-default">
@@ -50,42 +51,28 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>CPF</td>
-					<td>Nome</td>
-					<td>Telefone</td>
-					<td>E-mail</td>
-					<td>
-						<div class="dropdown">
-							<button class="btn btn-primary dropdown-toggle"
-								data-toggle="dropdown">
-								Ação <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-								<li><a href="#">Visualizar</a></li>
-								<li><a href="#">Matricular</a></li>
-							</ul>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>CPF</td>
-					<td>Nome</td>
-					<td>Telefone</td>
-					<td>E-mail</td>
-					<td>
-						<div class="dropdown">
-							<button class="btn btn-primary dropdown-toggle"
-								data-toggle="dropdown">
-								Ação <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-								<li><a href="#">Visualizar</a></li>
-								<li><a href="#">Matricular</a></li>
-							</ul>
-						</div>
-					</td>
-				</tr>
+				<!-- Repete os candidatos encontrados -->
+				<c:forEach items="${candidatoList}" var="candidato">
+					<tr>
+						<td>${candidato.cpf}</td>
+						<td>${candidato.nome}</td>
+						<td>${candidato.telefonePrincipal}</td>
+						<td>${candidato.email}</td>
+						<td>
+							<div class="dropdown">
+								<button class="btn btn-primary dropdown-toggle"
+									data-toggle="dropdown">
+									Ação <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+									<li><a href="#">Visualizar</a></li>
+									<li><a href="#">Matricular</a></li>
+								</ul>
+							</div>
+						</td>
+					</tr>
+				</c:forEach>
+				
 			</tbody>
 			<tfoot>
 			</tfoot>
