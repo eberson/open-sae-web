@@ -1,5 +1,6 @@
 *.class
 .classpath
+open-sae-web*
 # Package Files #
 *.jar
 *.war
