@@ -5,26 +5,49 @@
 	<div class="panel-body">
 
 
-		<fieldset>
-			<legend class="scheduler-border">Pesquisar</legend>
-			<form>
-				<div class="posicao">
-					<label>RM: </label><input name="rm" id="rm" class="input-cpf">
-					<label>Nome:</label><input name="nome" id="nome" class="input-nome">
-					<label>Semestre:</label><input name="semestre" id="semestre"
-						class="input-semestre"> <label>Ano: </label><input
-						name="ano" id="ano" class="input-ano">
-				</div>
-				<div class="botoes">
-					<button class="btn btn-primary" name="btnPesquisar"
-						id="btnPesquisar">Pesquisar</button>
-					<button class="btn btn-primary" name="btnLimpar" id="btnLimpar">Limpar</button>
-				</div>
-			</form>
-		</fieldset>
+		<div class='panel panel-info'>
+			<div class='panel-heading'>
+				<h3 class='panel-title'>
+					<a href='#' data-toggle='collapse' data-target='#painel-pesquisa'><span
+						class='glyphicon glyphicon-filter'></span></a> Pesquisar
+				</h3>
+			</div>
+			<div class='panel-body collapse in' id='painel-pesquisa'>
+				<form method='post'>
+					<div class='row'>
+						<div class='col-lg-2'>
+							<label for="cpf" class='como-bloco'>RM</label><input name="rm"
+								id="rm" class="form-control">
+						</div>
+						<div class='col-lg-2'>
+							<label for="nome">Nome</label><input name="nome" id="nome"
+								class="form-control">
+						</div>
+						<div class='col-lg-2'>
+							<label for="semestre">Semestre</label><input name="semestre"
+								id="semestre" class="form-control">
+						</div>
+						<div class='col-lg-2'>
+							<label for="ano">Ano</label><input name="ano" id="ano"
+								class="form-control">
+						</div>
+					</div>
+					<div class="row margem-top-10">
+						<div class='col-lg-1 col-lg-offset-10'>
+							<button type="reset" class="btn btn-info" name="btnLimpar"
+								id="btnLimpar">Limpar</button>
+						</div>
+						<div class='col-lg-1'>
+							<button type="submit" class="btn btn-primary" name="btnPesquisar"
+								id="btnPesquisar">Pesquisar</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
 
 		<table class="table table-striped">
-
 			<thead>
 				<tr>
 					<th>RM</th>
@@ -35,29 +58,12 @@
 				</tr>
 			</thead>
 			<tbody>
+
 				<tr>
-					<td>RM</td>
-					<td>Nome</td>
-					<td>Telefone</td>
-					<td>E-mail</td>
-					<td>
-						<div class="dropdown">
-							<button class="btn btn-primary dropdown-toggle"
-								data-toggle="dropdown">
-								Ação <span class="caret"></span>
-							</button>
-							<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-								<li><a href="#">Visualizar</a></li>
-								<li><a href="#">Matricular</a></li>
-							</ul>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>RM</td>
-					<td>Nome</td>
-					<td>Telefone</td>
-					<td>E-mail</td>
+					<td>${aluno.cpf}</td>
+					<td>${aluno.nome}</td>
+					<td>${aluno.telefonePrincipal}</td>
+					<td>${aluno.email}</td>
 					<td>
 						<div class="dropdown">
 							<button class="btn btn-primary dropdown-toggle"
@@ -72,14 +78,10 @@
 					</td>
 				</tr>
 			</tbody>
-			<tfoot>
-			</tfoot>
-
-
-
 		</table>
 
 	</div>
 </div>
+
 
 <jsp:include page="/rodape.jsp"></jsp:include>

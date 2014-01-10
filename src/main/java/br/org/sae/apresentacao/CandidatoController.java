@@ -1,5 +1,6 @@
 package br.org.sae.apresentacao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,21 +18,39 @@ public class CandidatoController {
 
 	@Autowired
 	private CandidatoService candidatoService;
-	
+
 	@Get
-	@Path("/candidato/listar")
-	public List<Candidato> listar(){
-		
+	@Path("/candidato/pesquisar")
+	public List<Candidato> pesquisar(){
+
 		final List<Candidato> candidatos = candidatoService.findAll();
-		
+
 		return candidatos;
-		
+
 	}
-	
+
 	@Post
 	@Path("/candidato/pesquisar")
-	public List<Candidato> pesquisar(String cpf, String nome, int ano, int semestre){
-		return null;
-	}
+	public List<Candidato> pesquisar(String cpf, String nome){
+
+		//final List<Candidato> candidatos = candidatoService.find(nome, cpf);
+		final Candidato candidato = candidatoService.find(cpf);
+		
+		if(candidato != null){
 	
+			final List<Candidato> candidatos = new ArrayList<Candidato>();
+
+			candidatos.add(candidato);
+
+			return candidatos;
+
+					
+		}
+		
+		final List<Candidato> candidatos = candidatoService.findAll(nome);
+				
+		
+		return candidatos;
+	}
+
 }
