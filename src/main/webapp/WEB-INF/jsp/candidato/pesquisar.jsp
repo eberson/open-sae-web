@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="/cabecalho.jsp"></jsp:include>
 
 <div class="panel panel-default">
@@ -8,35 +8,41 @@
 		<div class='panel panel-info'>
 			<div class='panel-heading'>
 				<h3 class='panel-title'>
-					<a href='#' data-toggle='collapse' data-target='#painel-pesquisa'><span class='glyphicon glyphicon-filter'></a></a>
-					Pesquisar
+					<a href='#' data-toggle='collapse' data-target='#painel-pesquisa'><span
+						class='glyphicon glyphicon-filter'></span></a> Pesquisar
 				</h3>
 			</div>
 			<div class='panel-body collapse in' id='painel-pesquisa'>
-			<form method='post'>
-				<div class='row'>
-					<div class='col-lg-2'>
-						<label for="cpf" class='como-bloco'>CPF</label><input name="cpf" id="cpf" class="form-control">
+				<form method='post'>
+					<div class='row'>
+						<div class='col-lg-2'>
+							<label for="cpf" class='como-bloco'>CPF</label><input name="cpf"
+								id="cpf" class="form-control">
+						</div>
+						<div class='col-lg-2'>
+							<label for="nome">Nome</label><input name="nome" id="nome"
+								class="form-control">
+						</div>
+						<div class='col-lg-2'>
+							<label for="semestre">Semestre</label><input name="semestre"
+								id="semestre" class="form-control">
+						</div>
+						<div class='col-lg-2'>
+							<label for="ano">Ano</label><input name="ano" id="ano"
+								class="form-control">
+						</div>
 					</div>
-					<div class='col-lg-2'>
-						<label for="nome">Nome</label><input name="nome" id="nome" class="form-control">
+					<div class="row margem-top-10">
+						<div class='col-lg-1 col-lg-offset-10'>
+							<button type="reset" class="btn btn-info" name="btnLimpar"
+								id="btnLimpar">Limpar</button>
+						</div>
+						<div class='col-lg-1'>
+							<button type="submit" class="btn btn-primary" name="btnPesquisar"
+								id="btnPesquisar">Pesquisar</button>
+						</div>
 					</div>
-					<div class='col-lg-2'>
-						<label for="semestre">Semestre</label><input name="semestre" id="semestre" class="form-control">
-					</div>
-					<div class='col-lg-2'>
-						<label for="ano">Ano</label><input name="ano" id="ano" class="form-control">
-					</div>
-				</div>
-				<div class="row margem-top-10">
-					<div class='col-lg-1 col-lg-offset-10'>
-						<button type="reset" class="btn btn-info" name="btnLimpar" id="btnLimpar">Limpar</button>
-					</div>
-					<div class='col-lg-1'>
-						<button type="submit" class="btn btn-primary" name="btnPesquisar" id="btnPesquisar">Pesquisar</button>
-					</div>
-				</div>
-			</form>
+				</form>
 			</div>
 		</div>
 
@@ -72,15 +78,10 @@
 						</td>
 					</tr>
 				</c:forEach>
-				
 			</tbody>
 			<tfoot>
 			</tfoot>
-
-
-
 		</table>
-
 	</div>
 </div>
 
