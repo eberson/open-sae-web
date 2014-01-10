@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,6 +38,12 @@
 					</ul></li>
 
 				<li class="dropdown"><a href="#" class="dropdown-toggle"
+					data-toggle="dropdown">Vestibulinho <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="/vestibulinho/convocar">Convocar candidatos</a></li>
+					</ul></li>
+
+				<li class="dropdown"><a href="#" class="dropdown-toggle"
 					data-toggle="dropdown">Alunos <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 						<li><a href="/aluno/consultar">Consultar</a></li>
@@ -65,5 +71,5 @@
 		</div>
 		<!-- /.navbar-collapse -->
 	</nav>
-	
+
 	<div id="conteudo">

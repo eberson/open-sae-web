@@ -33,7 +33,7 @@
     <!-- LOCAL entity manager factory -->
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="persistenceUnitName" value="open-sae"/>
-        <property name="dataSource" ref="hsqlMemoryDb" />
+        <property name="dataSource" ref="mysqlDb" />
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
                 <property name="showSql" value="true" />
